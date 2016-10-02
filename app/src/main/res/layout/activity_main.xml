@@ -16,11 +16,14 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/textView"
+        android:textSize="20dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/tan"
-        android:layout_toStartOf="@+id/tan" />
+        android:layout_toStartOf="@+id/tan"
+        android:layout_alignRight="@+id/cosine"
+        android:layout_alignEnd="@+id/cosine"
+        android:layout_toLeftOf="@+id/tan" />
 
     <GridLayout
         android:layout_width="wrap_content"
@@ -74,16 +77,6 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="62dp"
             android:layout_height="wrap_content"
-            android:text="+"
-            android:id="@+id/plus"
-            android:layout_row="0"
-            android:layout_column="3"
-            android:onClick="OnAdd" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="62dp"
-            android:layout_height="wrap_content"
             android:text="7"
             android:id="@+id/button7"
             android:layout_row="3"
@@ -109,16 +102,6 @@
             android:layout_row="2"
             android:layout_column="2"
             android:onClick="OnClick" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="62dp"
-            android:layout_height="wrap_content"
-            android:text="-"
-            android:id="@+id/minus"
-            android:layout_row="2"
-            android:layout_column="3"
-            android:onClick="OnAdd" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -154,16 +137,6 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="62dp"
             android:layout_height="wrap_content"
-            android:text="x"
-            android:id="@+id/multiply"
-            android:layout_row="3"
-            android:layout_column="3"
-            android:onClick="OnAdd" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="62dp"
-            android:layout_height="wrap_content"
             android:text="0"
             android:id="@+id/button0"
             android:layout_row="4"
@@ -174,21 +147,15 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="62dp"
             android:layout_height="wrap_content"
-            android:text="="
-            android:id="@+id/equal"
+            android:text="pi"
+            android:id="@+id/pi"
             android:layout_row="4"
             android:layout_column="2"
-            android:onClick="OnCalculate" />
+            android:onClick="pi"
+            android:layout_below="@+id/divide"
+            android:layout_toLeftOf="@+id/log2"
+            android:layout_toStartOf="@+id/log2" />
 
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="62dp"
-            android:layout_height="wrap_content"
-            android:text="/"
-            android:id="@+id/divide"
-            android:layout_row="4"
-            android:layout_column="3"
-            android:onClick="OnAdd" />
     </GridLayout>
 
     <Button
@@ -199,11 +166,10 @@
         android:id="@+id/sine"
         android:layout_row="1"
         android:layout_column="5"
-        android:layout_below="@+id/button20"
-        android:layout_toRightOf="@+id/gridLayout"
-        android:layout_alignRight="@+id/button20"
-        android:layout_alignEnd="@+id/button20"
-        android:onClick="sine" />
+        android:onClick="sine"
+        android:layout_above="@+id/cosine"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -213,12 +179,10 @@
         android:id="@+id/cosine"
         android:layout_row="1"
         android:layout_column="5"
-        android:layout_below="@+id/sine"
-        android:layout_alignLeft="@+id/sine"
-        android:layout_alignStart="@+id/sine"
-        android:layout_alignRight="@+id/tan"
-        android:layout_alignEnd="@+id/tan"
-        android:onClick="cosine" />
+        android:onClick="cosine"
+        android:layout_above="@+id/tan"
+        android:layout_alignLeft="@+id/tan"
+        android:layout_alignStart="@+id/tan" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -228,28 +192,10 @@
         android:id="@+id/tan"
         android:layout_row="1"
         android:layout_column="5"
-        android:layout_below="@+id/cosine"
+        android:onClick="tangent"
+        android:layout_alignBottom="@+id/gridLayout"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/gridLayout"
-        android:layout_toEndOf="@+id/gridLayout"
-        android:onClick="tangent" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="62dp"
-        android:layout_height="wrap_content"
-        android:text="&lt;-"
-        android:id="@+id/button20"
-        android:layout_row="1"
-        android:layout_column="5"
-        android:layout_alignTop="@+id/textView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_above="@+id/gridLayout"
-        android:layout_toRightOf="@+id/textView"
-        android:layout_toEndOf="@+id/textView"
-        android:onClick="OnBackspace" />
+        android:layout_alignParentEnd="true" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -259,12 +205,10 @@
         android:id="@+id/log2"
         android:layout_row="1"
         android:layout_column="5"
-        android:layout_below="@+id/tan"
+        android:onClick="log2"
+        android:layout_alignTop="@+id/divide"
         android:layout_alignLeft="@+id/tan"
-        android:layout_alignStart="@+id/tan"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="log2" />
+        android:layout_alignStart="@+id/tan" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -306,7 +250,7 @@
         android:layout_below="@+id/gridLayout"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:onClick="OnAdd" />
+        android:onClick="epowerx" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -319,7 +263,7 @@
         android:layout_below="@+id/gridLayout"
         android:layout_toRightOf="@+id/epowerx"
         android:layout_toEndOf="@+id/epowerx"
-        android:onClick="OnAdd" />
+        android:onClick="square" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -329,22 +273,10 @@
         android:id="@+id/xpowery"
         android:layout_row="1"
         android:layout_column="5"
+        android:onClick="OnAdd"
         android:layout_below="@+id/gridLayout"
-        android:layout_toLeftOf="@+id/pi"
-        android:layout_toStartOf="@+id/pi"
-        android:onClick="OnAdd" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="62dp"
-        android:layout_height="wrap_content"
-        android:text="pi"
-        android:id="@+id/pi"
-        android:layout_row="1"
-        android:layout_column="5"
-        android:layout_alignTop="@+id/log10"
-        android:layout_toLeftOf="@+id/log10"
-        android:layout_toStartOf="@+id/log10" />
+        android:layout_toRightOf="@+id/xsquare"
+        android:layout_toEndOf="@+id/xsquare" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -354,11 +286,77 @@
         android:id="@+id/clear"
         android:layout_row="1"
         android:layout_column="5"
-        android:layout_below="@+id/log10"
+        android:onClick="OnClear"
+        android:layout_below="@+id/epowerx"
+        android:layout_toLeftOf="@+id/equal"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/pi"
-        android:layout_alignEnd="@+id/pi"
-        android:onClick="OnClear" />
+        android:layout_alignParentStart="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="62dp"
+        android:layout_height="wrap_content"
+        android:text="="
+        android:id="@+id/equal"
+        android:layout_row="4"
+        android:layout_column="2"
+        android:onClick="OnCalculate"
+        android:layout_below="@+id/log2"
+        android:layout_alignRight="@+id/log2"
+        android:layout_alignEnd="@+id/log2"
+        android:layout_toRightOf="@+id/xpowery"
+        android:layout_toEndOf="@+id/xpowery" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="62dp"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:id="@+id/plus"
+        android:layout_row="0"
+        android:layout_column="3"
+        android:onClick="OnAdd"
+        android:layout_alignTop="@+id/sine"
+        android:layout_toLeftOf="@+id/sine"
+        android:layout_toStartOf="@+id/sine" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="62dp"
+        android:layout_height="wrap_content"
+        android:text="/"
+        android:id="@+id/divide"
+        android:layout_row="4"
+        android:layout_column="3"
+        android:onClick="OnAdd"
+        android:layout_below="@+id/gridLayout"
+        android:layout_toLeftOf="@+id/tan"
+        android:layout_toStartOf="@+id/tan" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="62dp"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:id="@+id/minus"
+        android:layout_row="2"
+        android:layout_column="3"
+        android:onClick="OnAdd"
+        android:layout_below="@+id/sine"
+        android:layout_toLeftOf="@+id/sine"
+        android:layout_toStartOf="@+id/sine" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="62dp"
+        android:layout_height="wrap_content"
+        android:text="x"
+        android:id="@+id/multiply"
+        android:layout_row="3"
+        android:layout_column="3"
+        android:onClick="OnAdd"
+        android:layout_below="@+id/cosine"
+        android:layout_toLeftOf="@+id/cosine"
+        android:layout_toStartOf="@+id/cosine" />
 
 </RelativeLayout>

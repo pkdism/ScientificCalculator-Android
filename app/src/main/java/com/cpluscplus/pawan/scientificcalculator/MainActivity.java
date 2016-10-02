@@ -55,14 +55,8 @@ public class MainActivity extends AppCompatActivity {
         else if(sign.equals("/")) {
             grandtotal = v1 / v2;
         }
-        else if(sign.equals("e^x")){
-            grandtotal = Math.pow(2.7183,v2);
-        }
-        else if(sign.equals("x^2")){
-            grandtotal = v2*v2;
-        }
         else if(sign.equals("x^y")){
-            grandtotal = Math.pow(v1,v2);
+            grandtotal = (double)Math.pow(v1,v2);
         }
         edit.setText(grandtotal+"");
     }
@@ -71,14 +65,7 @@ public class MainActivity extends AppCompatActivity {
         edit.setText("");
         total = "";
     }
-    public void OnBackspace(View v) {
-        TextView edit = (TextView) findViewById(R.id.textView);
-        String str = edit.getText().toString();
-        if (str != null && str.length() >= 1) {
-            str = str.substring(0, str.length() - 1);
-        }
-        edit.setText(str + "");
-    }
+
     public void sine(View v)
     {
         double x;
@@ -127,5 +114,28 @@ public class MainActivity extends AppCompatActivity {
         x = Double.parseDouble(str);
         double sum = Math.log(x);
         edit.setText(sum+"");
+    }
+    public void epowerx(View v){
+        double x;
+        TextView edit = (TextView)findViewById(R.id.textView);
+        String str = edit.getText().toString();
+        x = Double.parseDouble(str);
+        double sum = Math.pow(2.7183,x);
+        edit.setText(sum+"");
+    }
+    public void square(View v){
+        double x;
+        TextView edit = (TextView)findViewById(R.id.textView);
+        String str = edit.getText().toString();
+        x = Double.parseDouble(str);
+        double sum = x*x;
+        edit.setText(sum+"");
+    }
+    public void pi(View v){
+        Button button = (Button)v;
+        String str = "3.1415926535897932384626433832795";
+        total += str;
+        TextView edit = (TextView)findViewById(R.id.textView);
+        edit.setText(total);
     }
 }
